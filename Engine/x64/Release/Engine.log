@@ -1,0 +1,10 @@
+﻿  Pong.cpp
+\\school.lan\filestore\userdata\students\rhaque\documents\pong directx\engine\pong.cpp(64): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+\\school.lan\filestore\userdata\students\rhaque\documents\pong directx\engine\pong.cpp(70): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+\\school.lan\filestore\userdata\students\rhaque\documents\pong directx\engine\pong.cpp(75): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Generating code
+  3 of 573 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Engine.vcxproj -> \\school.lan\filestore\UserData\Students\rhaque\Documents\Pong DirectX\x64\Release\Engine.exe
