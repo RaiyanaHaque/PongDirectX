@@ -28,9 +28,9 @@ void Pong::UpdateModel()
 	paddle1Points[1].x = x_mobile + 100;
 	paddle1Points[1].y = y_mobile;
 	paddle1Points[2].x = x_mobile;
-	paddle1Points[2].y = y_mobile - 150;
+	paddle1Points[2].y = y_mobile + 150;
 	paddle1Points[3].x = x_mobile + 100;
-	paddle1Points[3].y = y_mobile - 150;
+	paddle1Points[3].y = y_mobile + 150;
 
 	//height = 150 & width = 100
 	paddle2Points[0].x = x_mobile1;
@@ -38,9 +38,9 @@ void Pong::UpdateModel()
 	paddle2Points[1].x = x_mobile1 + 100;
 	paddle2Points[1].y = y_mobile1;
 	paddle2Points[2].x = x_mobile1;
-	paddle2Points[2].y = y_mobile1 - 150;
+	paddle2Points[2].y = y_mobile1 + 150;
 	paddle2Points[3].x = x_mobile1 + 100;
-	paddle2Points[3].y = y_mobile1 - 150;
+	paddle2Points[3].y = y_mobile1 + 150;
 
 	//ball height = 100 & width = 100
 	ballPoints[0].x = ballx;	
@@ -48,15 +48,41 @@ void Pong::UpdateModel()
 	ballPoints[1].x = ballx + 100;
 	ballPoints[1].y = bally;
 	ballPoints[2].x = ballx;
-	ballPoints[2].y = bally - 100;
+	ballPoints[2].y = bally + 100;
 	ballPoints[3].x = ballx + 100;
-	ballPoints[3].y = bally - 100;
+	ballPoints[3].y = bally + 100;
 
-	if (ballPoints[1].y < paddle2Points[2].y && 
-		ballPoints[3].x < paddle2Points[0].x &&
-		ballPoints[0].x > paddle2Points[3].x)
+	if (!(ballPoints[0].x > paddle2Points[1].x || 
+		ballPoints[1].x < paddle2Points[0].x ||
+		ballPoints[0].y > paddle2Points[2].y ||
+		ballPoints[2].y < paddle2Points[0].y))
+	{
+	ballxspeed *= -1;
+	}
+
+	if (!(ballPoints[0].x > paddle1Points[1].x ||
+		ballPoints[1].x < paddle1Points[0].x ||
+		ballPoints[0].y > paddle1Points[2].y ||
+		ballPoints[2].y < paddle1Points[0].y))
 	{
 		ballxspeed *= -1;
+	}
+
+	if (ballPoints[0].y <= 0 || ballPoints[2].y >= gfx.ScreenHeight)
+	{
+
+		ballyspeed *= -1;
+	}
+
+	ballx += ballxspeed;
+	bally += ballyspeed;
+
+	
+
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		y_mobile = (y_mobile - 1) + 0.9;
+
 	}
 
 	if (wnd.kbd.KeyIsPressed(VK_DOWN))
@@ -75,8 +101,15 @@ void Pong::UpdateModel()
 		y_mobile1 = (y_mobile1 + 1) + 0.5;
 	}
 
+	if (paddle2Points[0].y < 0) {
+		y_mobile1 = 0;
+	}
 
-	x_mobile = ContainBoxX(x_mobile);
+	if (paddle2Points[2].y >= gfx.ScreenHeight) {
+		y_mobile1 = 598;
+	}
+
+	/*x_mobile = ContainBoxX(x_mobile);
 	y_mobile = ContainBoxY(y_mobile);
 	x_mobile1 = ContainBoxX(x_mobile1);
 	y_mobile1 = ContainBoxY(y_mobile1);
@@ -93,7 +126,7 @@ void Pong::UpdateModel()
 		ballx += ballxspeed;
 		bally += ballyspeed;
 
-	}
+	}*/
 
 }
 

@@ -1,2 +1,6 @@
-﻿  Main.cpp
-  Engine.vcxproj -> \\school.lan\filestore\UserData\Students\rhaque\Documents\Pong DirectX\x64\Debug\Engine.exe
+﻿  Pong.cpp
+\\school.lan\filestore\userdata\students\rhaque\documents\github\pongdirectx\engine\pong.cpp(84): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+\\school.lan\filestore\userdata\students\rhaque\documents\github\pongdirectx\engine\pong.cpp(90): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+\\school.lan\filestore\userdata\students\rhaque\documents\github\pongdirectx\engine\pong.cpp(96): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+\\school.lan\filestore\userdata\students\rhaque\documents\github\pongdirectx\engine\pong.cpp(101): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Engine.vcxproj -> \\school.lan\filestore\UserData\Students\rhaque\Documents\GitHub\PongDirectX\x64\Debug\Engine.exe
