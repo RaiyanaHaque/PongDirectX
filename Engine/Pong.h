@@ -10,6 +10,7 @@
 #include <Windows.h>
 using namespace std;
 enum eDir { STOP = 0, LEFT = 1, UPLEFT = 2, DOWNLEFT = 3, RIGHT = 4, UPRIGHT = 5, DOWNRIGHT = 6 }; //Direction of the ball 
+enum eNumber { First = 1, Second =  2, Third = 3, Fourth = 4, Fifth = 5};
 
 struct Vector2 {
 
@@ -42,6 +43,9 @@ private:
 	int bally = gfx.ScreenHeight / 2;
 	int ballxspeed = 1;
 	int ballyspeed = 1;
+	int textX = 50;
+	int textY = 540;
+	int score;
 
 	Vector2 paddle1Points[4];
 	Vector2 paddle2Points[4];
@@ -50,13 +54,26 @@ private:
 
 
 	void Reset() {
-		x = originalX; //Return pos
-		y = originalY;
+
+		int x_mobile = 50;
+		int y_mobile = 300;
+		int x_mobile1 = 590;
+		int y_mobile1 = 300;
+		int ballx = (gfx.ScreenWidth / 2) - 70;
+		int bally = gfx.ScreenHeight / 2;
 		direction = STOP;
 	}
 
 	void DrawPaddle(int x, int y);
 	void DrawBall(int x, int y);
+
+	void DrawNumbers(int x, int y, int toDraw);
+
+	void DrawNumber1(int x, int y);
+	void DrawNumber2(int x, int y);
+	void DrawNumber3(int x, int y);
+	void DrawNumber4(int x, int y);
+	void DrawNumber5(int x, int y);
 
 
 public:
@@ -88,6 +105,13 @@ public:
 	inline int getY() { return y; }
 	inline eDir getDirection() { return direction; }
 
+
+
+	/*void changeNumbers() 
+	{
+		switch (number) {
+		}
+	}*/
 	
 
 	void Move() //Ball Movement 
@@ -144,4 +168,4 @@ public:
 
 };
 
-
+ 
